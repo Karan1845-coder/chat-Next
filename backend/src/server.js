@@ -1,5 +1,6 @@
 import express from "express";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 
 
@@ -15,8 +16,10 @@ const PORT=process.env.PORT
 app.get("/", (req, res) => {
   res.send("Server is working fine!");
 });
-  
-app.use("/api/auth",authRoutes)
+
+app.use(express.json());//fetch sognup routef 
+app.use(cookieParser());
+app.use("/api/auth",authRoutes);
 
 
 
